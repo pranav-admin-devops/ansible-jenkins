@@ -1,0 +1,23 @@
+- name: Installing Webserver
+  hosts: linux
+  vars_files:
+  - /root/ansible/var.yml
+  tasks:
+  - name: Installing {{ pkg }} service
+    dnf:
+      name: "{{ pkg }}"
+      state: present
+  - name: Copying Webserver files to Document root
+    copy:
+      src: "{{ item }}"
+      dest: "{{ dest }}"
+    loop: "{{ content }}"
+  - name: Starting Webserver
+    service:
+      name: "{{ pkg }}"
+      state: started
+      enabled: true
+  - name: Copy Jinja2 template
+    template:
+      src: hosts.j2
+      dest: /tmp/hosts-template  

@@ -1,0 +1,13 @@
+Welcome {{ username }}
+Server Name: {{ ansible_hostname }}
+
+{% if ansible_os_family == "RedHat" %}
+<h1> This is a RedHat system </h1>
+{% else %}
+<h1> This is Not a RedHat system </h1>
+{% endif %} 
+
+Users:
+ {% for user in users %}
+ - {{ user }}
+ {% endfor %}

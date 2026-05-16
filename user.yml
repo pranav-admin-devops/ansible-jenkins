@@ -1,0 +1,17 @@
+- name: Create a user on Linux Servers
+  hosts: linux
+  tasks:
+  - name: Create jenkins user
+    user:
+      name: pranavadmin
+      state: present
+  - name: createing group for terraform
+    group:
+      name: terra
+      state: present    
+  - name: create a user for terraform
+    user:
+      name: demo-user
+      uid: 1030
+      groups: terra
+      state: present     

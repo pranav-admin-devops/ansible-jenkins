@@ -1,0 +1,12 @@
+dest: /var/www/html
+pkg: httpd
+content:
+- /web/index.html
+- /web/script.js
+- /web/style.css
+username: pranav
+users:
+- pranav
+- natasha
+- john
+- aron
