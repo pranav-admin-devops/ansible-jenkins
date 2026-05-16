@@ -3,15 +3,14 @@
   tasks:
   - name: Create jenkins user
     user:
-      name: pranavadmin
+      name: sysadmin
       state: present
   - name: createing group for terraform
     group:
-      name: terra
+      name: production
       state: present    
   - name: create a user for terraform
     user:
-      name: demo-user
-      uid: 1030
+      name: dev1
       groups: terra
       state: present     
